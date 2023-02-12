@@ -7,12 +7,12 @@ import (
 	"time"
 )
 
-var timeout = 1 * time.Second
+const Timeout = 1 * time.Second
 
 func scan (host string, port int) {
 	address := fmt.Sprintf("%s:%d", host, port)
 
-	connection, err := net.DialTimeout("tcp", address, timeout)
+	connection, err := net.DialTimeout("tcp", address, Timeout)
 
 	if err != nil{
 		return
