@@ -9,15 +9,15 @@ import (
 
 const Timeout = 1 * time.Second
 
-func scan (host string, port int) {
+func scan(host string, port int) {
 	address := fmt.Sprintf("%s:%d", host, port)
 
 	connection, err := net.DialTimeout("tcp", address, Timeout)
 
-	if err != nil{
+	if err != nil {
 		return
 	}
-	
+
 	fmt.Println("Remote address:", connection.RemoteAddr().String())
 	fmt.Printf("\tport %d is open\n", port)
 
@@ -33,6 +33,6 @@ func main() {
 	flag.IntVar(&port, "port", 80, "port")
 
 	flag.Parse()
-	
+
 	scan(host, port)
 }
